@@ -1,0 +1,46 @@
+{% block content %}
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #eaeaea;
+  }
+</style>
+
+  <h2>선수 목록</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>키</th>
+        <th>몸무게</th>
+        <th>포지션</th>
+        <!-- 필요한 경우 더 많은 열 추가 -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in players %}
+        <tr>
+          <td>{{ player.playername }}</td>
+          <td>{{ player.height }}</td>
+          <td>{{ player.weight }}</td>
+          <td>{{ player.position }}</td>
+          <!-- 원하는 만큼 더 많은 선수 정보를 표시 -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

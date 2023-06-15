@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>커뮤니티</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>커뮤니티</h1>
+    <a href="{% url 'main:board:write' %}">글 작성</a>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <p>{{ post.creator }}</p>
+            <p>{{ post.created_at }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'main:home' %}">메인 페이지로 돌아가기</a>
+</body>
+</html>

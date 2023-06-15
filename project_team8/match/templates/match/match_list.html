@@ -1,0 +1,41 @@
+<!-- match_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Match List</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Team Name 1</th>
+            <th>Team Name 2</th>
+            <th>Location</th>
+        </tr>
+        {% for match in matches %}
+            {% if match.is_joined %}
+                <tr>
+                    <td>{{ match.match_date }}</td>
+                    <td>{{ match.team_name_1 }}</td>
+                    <td>{{ match.team_name_2 }}</td>
+                    <td>{{ match.location }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <a href="{% url 'main:home' %}">메인 페이지로 돌아가기</a>
+</body>
+</html>

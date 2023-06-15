@@ -1,0 +1,13 @@
+{% block content %}
+    <h1 class="center">팀 관리 페이지</h1>
+    
+    <div class="center">
+        <ul>
+            <li><a href="{% url 'main:team:create_team' %}" class="button">팀 생성</a></li>
+            {% if team %}
+                <li><a href="{% url 'main:team:manage_team_members' %}" class="button">팀원 관리</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <a href="{% url 'main:home' %}">메인 페이지로 돌아가기</a>
+{% endblock %}
